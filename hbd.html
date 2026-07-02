@@ -66,7 +66,7 @@
             100% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Floating Floating Elements Container */
+        /* Floating Elements Container */
         .decorations {
             position: fixed;
             width: 100%;
@@ -257,11 +257,9 @@
 
         /* Photo Gallery */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            display: flex;
             justify-content: center;
+            margin-top: 25px;
         }
         .photo-frame {
             background: white;
@@ -272,8 +270,8 @@
             transition: transform 0.3s;
             position: relative;
             overflow: hidden;
-            max-width: 250px;
-            margin: 0 auto;
+            max-width: 280px;
+            width: 100%;
         }
         .photo-frame:hover {
             transform: rotate(3deg) scale(1.05);
@@ -329,11 +327,11 @@
         <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
     </ul>
 
-    <!-- Background Music -->
+    <!-- Background Music (Asli Happy Birthday Song) -->
     <div class="music-control" id="musicBtn">
         <i class="fas fa-volume-mute" id="musicIcon"></i> <span id="musicText">Play Music</span>
     </div>
-    <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    <audio id="bgMusic" loop src="https://actions.google.com/sounds/v1/events/happy_birthday_instrumental.ogg"></audio>
 
     <div class="decorations" id="decorationsContainer"></div>
 
@@ -389,8 +387,8 @@
             <h3 style="margin-bottom: 15px; color: #6c5ce7;"><i class="fa-solid fa-camera-retro"></i> Special Picture</h3>
             <div class="gallery">
                 <div class="photo-frame">
-                    <!-- Balloon Wali Image Yahan Add Ho Gayi Hai -->
-                    <img src="93233.jpg" alt="Hassan's Birthday Balloon Pic">
+                    <!-- Sirf aapki balloon wali picture set hai -->
+                    <img src="af3df659cd92ca0773b74143726355d9.jpg" onerror="this.src='af3df659cd92ca0773b74143726355d9.JPG'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500';}" alt="Hassan's Birthday Balloon Pic">
                 </div>
             </div>
         </div>
@@ -491,4 +489,5 @@
         });
     </script>
 </body>
-</html>
+    </html>
+    
