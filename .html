@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hassan! ❤️</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --pink: #ffb7c5;
+            --blue: #a8dadc;
+            --white: #ffffff;
+            --gold: #ffd700;
+            --dark-pink: #ff85a2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #c9e4de 50%, #f7d6e0 100%);
+            overflow-x: hidden;
+            color: #4a4a4a;
+            position: relative;
+        }
+
+        /* Fairy Lights Animation */
+        .fairy-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style: none;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .fairy-lights li {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0px 2px 20px var(--gold);
+            animation: blink 1.5s infinite alternate;
+        }
+
+        .fairy-lights li:nth-child(even) {
+            background: var(--dark-pink);
+            box-shadow: 0px 2px 20px var(--dark-pink);
+            animation-delay: 0.5s;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Floating Elements Container */
+        .decorations {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Music Floating Control */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* Main Container with Glassmorphism */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header / Typing Animation */
+        h1.birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #d63384;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .typing-effect {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6c5ce7;
+            border-right: 3px solid #6c5ce7;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            margin: 0 auto 20px auto;
+            animation: typing 3.5s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% { width: 0 } 50% { width: 100% } 100% { width: 0 }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent } 50% { border-color: #6c5ce7; }
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* Bubu Dudu Cute Bears */
+        .bubu-dudu-box {
+            margin: 20px auto;
+            width: 200px;
+            height: 150px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .bear {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            animation: bounce 2s infinite alternate;
+        }
+        .bubu { background: #fdfbf7; border: 2px solid #e2dacb;} 
+        .dudu { background: #e0a96d; border: 2px solid #c29562; animation-delay: 0.5s;} 
+        
+        .bear::before, .bear::after { 
+            content: ''; position: absolute; width: 22px; height: 22px; border-radius: 50%; top: -5px;
+        }
+        .bubu::before { left: -5px; background: #fdfbf7; } .bubu::after { right: -5px; background: #fdfbf7; }
+        .dudu::before { left: -5px; background: #e0a96d; } .dudu::after { right: -5px; background: #e0a96d; }
+
+        @keyframes bounce {
+            to { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* Cake & Candles */
+        .cake-container {
+            margin: 30px auto;
+            position: relative;
+            width: 120px;
+        }
+        .cake {
+            width: 120px;
+            height: 90px;
+            background: #f1a7b4;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            box-shadow: inset 0 -10px 0 #e593a2, 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .cake::before {
+            content: ''; position: absolute; width: 100%; height: 20px; background: #fff; border-radius: 10px; top: 25px; left: 0;
+        }
+        .candle {
+            width: 8px; height: 30px; background: var(--gold); position: absolute; top: -30px; left: 56px; border-radius: 3px;
+        }
+        .flame {
+            width: 12px; height: 18px; background: #ff9f43; border-radius: 50% 50% 20% 20%; position: absolute; top: -45px; left: 54px;
+            animation: burn 0.5s infinite alternate;
+            box-shadow: 0 0 10px #ff9f43;
+        }
+        @keyframes burn { to { transform: scale(1.1); opacity: 0.8; } }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .time-box {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px 15px;
+            border-radius: 15px;
+            min-width: 70px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .time-box span { display: block; font-size: 1.5rem; font-weight: 600; color: #d63384; }
+        .time-box label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* Heartfelt Message */
+        .message-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-style: italic;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        /* Buttons */
+        .btn {
+            background: linear-gradient(45deg, #ff85a2, #ffb7c5);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4);
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 7px 20px rgba(255, 133, 162, 0.6);
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        .photo-frame {
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            border: 3px solid var(--white);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+        .photo-frame:hover {
+            transform: rotate(3deg) scale(1.05);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+        .photo-frame::after {
+            content: '✨'; position: absolute; top: 5px; right: 5px; font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.1rem;
+            color: #d63384;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        /* Custom Magical Sparkles */
+        .sparkle {
+            position: absolute;
+            pointer-events: none;
+            background: radial-gradient(circle, #fff, var(--gold));
+            border-radius: 50%;
+            animation: fly 1s linear forwards;
+        }
+        @keyframes fly {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--mx), var(--my)) scale(0); opacity: 0; }
+        }
+
+        /* Falling Elements */
+        .falling {
+            position: absolute;
+            top: -20px;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(105vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fairy Lights -->
+    <ul class="fairy-lights">
+        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    </ul>
+
+    <!-- Background Music -->
+    <div class="music-control" id="musicBtn">
+        <i class="fas fa-volume-mute" id="musicIcon"></i> <span id="musicText">Play Music</span>
+    </div>
+    <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <div class="decorations" id="decorationsContainer"></div>
+
+    <div class="container">
+        
+        <!-- Header Card -->
+        <div class="glass-card">
+            <h1 class="birthday-title">🎉 Happy Birthday Hassan! 🎂</h1>
+            <div class="typing-effect">To the most amazing person ever... ❤️</div>
+            
+            <!-- Bubu Dudu Cute Animation -->
+            <div class="bubu-dudu-box">
+                <div class="bear bubu"></div>
+                <div class="bear dudu"></div>
+            </div>
+        </div>
+
+        <!-- Cake Section -->
+        <div class="glass-card">
+            <div class="cake-container">
+                <div class="flame"></div>
+                <div class="candle"></div>
+                <div class="cake"></div>
+            </div>
+            <h3>Blow the Candle & Make a Wish</h3>
+            <p style="margin: 15px 0; color: #777;">Click the button below to spread magical vibes!</p>
+            <button class="btn" id="wishBtn">✨ Make a Wish ✨</button>
+        </div>
+
+        <!-- Countdown Timer Card -->
+        <div class="glass-card">
+            <h3 style="color:#6c5ce7;"><i class="fa-solid fa-hourglass-half"></i> Countdown to Big Day</h3>
+            <div class="countdown" id="countdown">
+                <div class="time-box"><span id="days">00</span><label>Days</label></div>
+                <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+                <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
+                <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+            </div>
+        </div>
+
+        <!-- Heartfelt Message Card -->
+        <div class="glass-card">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #d63384;">My Wishes For You</h2>
+            <p class="message-text">
+                "May your life be filled with happiness, success, love, and unforgettable memories. 
+                Wishing you the happiest birthday ever! ❤️"
+            </p>
+            <div style="font-size: 2rem;">🎁 ✨ 🎈 🧸</div>
+        </div>
+
+        <!-- Photo Gallery Card -->
+        <div class="glass-card">
+            <h3 style="margin-bottom: 15px; color: #6c5ce7;"><i class="fa-solid fa-camera-retro"></i> Special Picture</h3>
+            <div class="gallery">
+                <div class="photo-frame">
+                    <!-- Aapki Balloon wali pic ka lamba naam yahan set kar diya hai -->
+                    <img src="af3df659cd92ca0773b74143726355d9.jpg" alt="Hassan's Birthday Balloon Pic">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p class="glowing-text">Made with ❤️ especially for Hassan</p>
+        </footer>
+    </div>
+
+    <script>
+        // 1. Automatic Falling Elements
+        const decContainer = document.getElementById('decorationsContainer');
+        const items = ['🎈', '❤️', '✨', '🌸', '⭐', '🎉'];
+        
+        function createFallingElement() {
+            const el = document.createElement('div');
+            el.classList.add('falling');
+            el.innerText = items[Math.floor(Math.random() * items.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = Math.random() * 20 + 15 + 'px';
+            el.style.animationDuration = Math.random() * 3 + 3 + 's'; 
+            el.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            decContainer.appendChild(el);
+            setTimeout(() => el.remove(), 6000);
+        }
+        setInterval(createFallingElement, 300);
+
+        // 2. Make a Wish Sparkle Effect
+        const wishBtn = document.getElementById('wishBtn');
+        wishBtn.addEventListener('click', (e) => {
+            const flame = document.querySelector('.flame');
+            if(flame) flame.style.display = 'none';
+
+            for (let i = 0; i < 40; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                const size = Math.random() * 8 + 4;
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + window.scrollY + 'px';
+                
+                const mx = (Math.random() - 0.5) * 300;
+                const my = (Math.random() - 0.5) * 300;
+                sparkle.style.setProperty('--mx', mx + 'px');
+                sparkle.style.setProperty('--my', my + 'px');
+                
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+            alert("✨ Your magical wish for Hassan has been sent to the universe! ❤️");
+        });
+
+        // 3. Countdown Timer (Set to 7 July 2026)
+        const birthdayDate = new Date("2026-07-07T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = birthdayDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "<h4>Happy Birthday Hassan! The Wait Is Over! 🎉</h4>";
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d < 10 ? '0'+d : d;
+            document.getElementById('hours').innerText = h < 10 ? '0'+h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0'+m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0'+s : s;
+        }
+        setInterval(updateCountdown, 1000);
+
+        // 4. Music Play/Pause Handler
+        const musicBtn = document.getElementById('musicBtn');
+        const music = document.getElementById('bgMusic');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicText = document.getElementById('musicText');
+
+        musicBtn.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicIcon.className = "fas fa-volume-up";
+                musicText.innerText = "Mute";
+                musicBtn.style.background = "rgba(255, 133, 162, 0.3)";
+            } else {
+                music.pause();
+                musicIcon.className = "fas fa-volume-mute";
+                musicText.innerText = "Play Music";
+                musicBtn.style.background = "rgba(255, 255, 255, 0.7)";
+            }
+        });
+    </script>
+</body>
+  </html>
+  
