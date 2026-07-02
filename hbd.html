@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Hassan! ❤️</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -75,25 +73,6 @@
             left: 0;
             pointer-events: none;
             z-index: 1;
-        }
-
-        /* Music Floating Control */
-        .music-control {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 2000;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 10px 15px;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(255,255,255,0.5);
         }
 
         /* Main Container with Glassmorphism */
@@ -255,37 +234,6 @@
             box-shadow: 0 7px 20px rgba(255, 133, 162, 0.6);
         }
 
-        /* Photo Gallery */
-        .gallery {
-            display: flex;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        .photo-frame {
-            background: white;
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-            border: 3px solid var(--white);
-            transition: transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            max-width: 280px;
-            width: 100%;
-        }
-        .photo-frame:hover {
-            transform: rotate(3deg) scale(1.05);
-        }
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-        }
-        .photo-frame::after {
-            content: '✨'; position: absolute; top: 5px; right: 5px; font-size: 0.9rem;
-        }
-
         /* Footer */
         footer {
             margin-top: 50px;
@@ -322,34 +270,24 @@
 </head>
 <body>
 
-    <!-- Fairy Lights -->
     <ul class="fairy-lights">
         <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
     </ul>
-
-    <!-- Background Music (Asli Happy Birthday Song) -->
-    <div class="music-control" id="musicBtn">
-        <i class="fas fa-volume-mute" id="musicIcon"></i> <span id="musicText">Play Music</span>
-    </div>
-    <audio id="bgMusic" loop src="https://actions.google.com/sounds/v1/events/happy_birthday_instrumental.ogg"></audio>
 
     <div class="decorations" id="decorationsContainer"></div>
 
     <div class="container">
         
-        <!-- Header Card -->
         <div class="glass-card">
             <h1 class="birthday-title">🎉 Happy Birthday Hassan! 🎂</h1>
             <div class="typing-effect">To the most amazing person ever... ❤️</div>
             
-            <!-- Bubu Dudu Cute Animation -->
             <div class="bubu-dudu-box">
                 <div class="bear bubu"></div>
                 <div class="bear dudu"></div>
             </div>
         </div>
 
-        <!-- Cake Section -->
         <div class="glass-card">
             <div class="cake-container">
                 <div class="flame"></div>
@@ -361,7 +299,6 @@
             <button class="btn" id="wishBtn">✨ Make a Wish ✨</button>
         </div>
 
-        <!-- Countdown Timer Card -->
         <div class="glass-card">
             <h3 style="color:#6c5ce7;"><i class="fa-solid fa-hourglass-half"></i> Countdown to Big Day</h3>
             <div class="countdown" id="countdown">
@@ -372,7 +309,6 @@
             </div>
         </div>
 
-        <!-- Heartfelt Message Card -->
         <div class="glass-card">
             <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #d63384;">My Wishes For You</h2>
             <p class="message-text">
@@ -382,18 +318,6 @@
             <div style="font-size: 2rem;">🎁 ✨ 🎈 🧸</div>
         </div>
 
-        <!-- Photo Gallery Card -->
-        <div class="glass-card">
-            <h3 style="margin-bottom: 15px; color: #6c5ce7;"><i class="fa-solid fa-camera-retro"></i> Special Picture</h3>
-            <div class="gallery">
-                <div class="photo-frame">
-                    <!-- Sirf aapki balloon wali picture set hai -->
-                    <img src="af3df659cd92ca0773b74143726355d9.jpg" onerror="this.src='af3df659cd92ca0773b74143726355d9.JPG'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500';}" alt="Hassan's Birthday Balloon Pic">
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
         <footer>
             <p class="glowing-text">Made with ❤️ especially for Hassan</p>
         </footer>
@@ -467,27 +391,6 @@
             document.getElementById('seconds').innerText = s < 10 ? '0'+s : s;
         }
         setInterval(updateCountdown, 1000);
-
-        // 4. Music Play/Pause Handler
-        const musicBtn = document.getElementById('musicBtn');
-        const music = document.getElementById('bgMusic');
-        const musicIcon = document.getElementById('musicIcon');
-        const musicText = document.getElementById('musicText');
-
-        musicBtn.addEventListener('click', () => {
-            if (music.paused) {
-                music.play();
-                musicIcon.className = "fas fa-volume-up";
-                musicText.innerText = "Mute";
-                musicBtn.style.background = "rgba(255, 133, 162, 0.3)";
-            } else {
-                music.pause();
-                musicIcon.className = "fas fa-volume-mute";
-                musicText.innerText = "Play Music";
-                musicBtn.style.background = "rgba(255, 255, 255, 0.7)";
-            }
-        });
     </script>
 </body>
-    </html>
-    
+</html>
