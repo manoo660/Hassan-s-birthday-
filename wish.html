@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hassan!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #111, #222);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            z-index: 10;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+            margin-bottom: 10px;
+        }
+
+        .name-style {
+            font-size: 4.5rem;
+            display: block;
+            color: #00f2fe;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .wishes {
+            font-size: 1.2rem;
+            color: #ccc;
+            min-height: 50px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            border: none;
+            padding: 15px 35px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Floating Balloons / Confetti Particles */
+        .particle {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float Up 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 2px #ff416c); }
+            100% { filter: drop-shadow(0 0 15px #f1c40f); }
+        }
+    </style>
+    <!-- Google Fonts for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Birthday</h1>
+        <span class="name-style">HASSAN</span>
+        
+        <!-- Typewriter Effect Text -->
+        <p class="wishes" id="typed-text"></p>
+
+        <button class="btn" onclick="celebrate()">Click for Surprise 🎉</button>
+    </div>
+
+    <script>
+        // Typewriter Effect
+        const words = [
+            "May your day be filled with laughter and joy! ✨",
+            "Wishing you success, health, and endless happiness. 👑",
+            "Keep shining and rocking, Hassan! 🚀",
+            "May all your gaming & life goals come true! 🎮"
+        ];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typed-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 60);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typed-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 30);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+
+        // Surprise Celebration Function (Confetti/Balloons Effect)
+        function celebrate() {
+            const colors = ['#ff416c', '#ff4b2b', '#f1c40f', '#00f2fe', '#4facfe', '#9b59b6'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random styling for particles
+                    const size = Math.random() * 20 + 10;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size * 1.2}px`; // Slightly oval like a balloon
+                    particle.style.left = `${Math.random() * 100}vw`;
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.animationDuration = `${Math.random() * 3 + 3}s`;
+                    
+                    document.body.appendChild(particle);
+
+                    // Remove from DOM after animation completes
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 6000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
