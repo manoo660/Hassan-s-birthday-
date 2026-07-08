@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Abubakar!</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        h1 {
+            color: #f59e0b;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .arabic-english {
+            font-style: italic;
+            color: #93c5fd;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .time-box {
+            background: #1e40af;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 70px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .time-box span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+        .time-box label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #cbd5e1;
+        }
+        .wishes {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Happy Birthday<br><span style="color: #fff;">Abubakar</span></h1>
+    
+    <!-- Arabic in English Transliteration -->
+    <div class="arabic-english">
+        "Kullu 'am wa anta bi-khair"<br>
+        <span style="font-size: 0.9rem; color: #a1a1aa;">(May you be well with every passing year)</span>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0;">
+
+    <h3>Countdown to 7th October 🎉</h3>
+    <div class="countdown" id="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <label>Days</label>
+        </div>
+        <div class="time-box">
+            <span id="hours">00</span>
+            <label>Hours</label>
+        </div>
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <label>Mins</label>
+        </div>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <label>Secs</label>
+        </div>
+    </div>
+
+    <div class="wishes">
+        <p>Wishing you a fantastic year ahead, my friend! May Allah bless you with endless happiness, success, and good health. Stay blessed always! 🥂✨</p>
+    </div>
+
+    <div class="footer">
+        Made for a special friend 🙌
+    </div>
+</div>
+
+<script>
+    function updateCountdown() {
+        const currentYear = new Date().getFullYear();
+        let birthdayDate = new Date(`October 7, ${currentYear} 00:00:00`).getTime();
+        const now = new Date().getTime();
+        
+        // If October 7 has already passed this year, set countdown for next year
+        if (now > birthdayDate) {
+            birthdayDate = new Date(`October 7, ${currentYear + 1} 00:00:00`).getTime();
+        }
+
+        const difference = birthdayDate - now;
+
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+        document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+        document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+        document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
